@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Survey</title>
+  <style>
+    body {
+      background-color: rgb(228, 205, 171);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1, p {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      background: #fff;
+      padding: 25px;
+      margin: 20px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input[type="text"], 
+    input[type="email"], 
+    input[type="number"], 
+    select, 
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border 0.3s, box-shadow 0.3s;
+      box-sizing: border-box;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #0066cc;
+      box-shadow: 0 0 5px rgba(0,102,204,0.3);
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Radio & Checkbox Styling */
+    .options-group p {
+      margin: 10px 0;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    .option input {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #666;
+      border-radius: 4px;
+      margin-right: 8px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .option input[type="radio"] {
+      border-radius: 50%;
+    }
+
+    .option input:checked {
+      background: #0066cc;
+      border-color: #0066cc;
+    }
+
+    .option input[type="checkbox"]:checked::after {
+      content: "✔";
+      color: #fff;
+      font-size: 12px;
+      position: absolute;
+      top: 0;
+      left: 3px;
+    }
+
+    .option input[type="radio"]:checked::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #0066cc;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background: #004d99;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="title">Quick Survey</h1>
+  <p id="description">Please fill out this survey form</p>
+
+  <form action="https://api.web3forms.com/submit" method="POST">
+    <!-- Web3Forms API key -->
+    <input type="hidden" name="access_key" value="2468cb9d-59f0-4985-9b1e-2cea37b3da53">
+
+    <label for="name-label">Name:</label>
+    <input id="name-label" type="text" name="name" required>
+
+    <label for="email">Email:</label>
+    <input id="email" type="email" name="email" required>
+    
+    <label for="number">Age:</label>
+    <input id="number" type="number" name="age" required min="1" max="80">
+
+    <label for="dropdown">Select your role:</label>
+    <select id="dropdown" name="role" required>
+      <option value="">--Please choose an option--</option>
+      <option value="student">Student</option>
+      <option value="developer">Developer</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <div class="options-group">
+      <p>Choose your preferred contact method:</p>
+      <label class="option"><input type="radio" name="contact" value="email"> Email</label>
+      <label class="option"><input type="radio" name="contact" value="phone"> Phone</label>
+    </div>
+
+    <div class="options-group">
+      <p>What skills are you interested in?</p>
+      <label class="option"><input type="checkbox" name="skills" value="html"> HTML</label>
+      <label class="option"><input type="checkbox" name="skills" value="css"> CSS</label>
+      <label class="option"><input type="checkbox" name="skills" value="js"> JS</label>
+    </div>
+    <div class="hobbie-group">
+      <p>What are your hobbies?</p>
+      <label class="option"><input type="checkbox" name="hobbies" value="reading"> Reading </label>
+      <label class="option"><input type="checkbox" name="hobbies" value="Cooking">Cooking or Baking</label>
+      <label class="option"><input type="checkbox" name="hobbies" value="Travelling">Travelling</label>
+      <label class="option"><input type="checkbox" name="hobbies" value="Singing">Singing</label>
+      <label class="option"><input type="checkbox" name="hobbies" value="Crafting"> Crafting</label>
+      <label class="option"><input type="checkbox" name="hobbies" value="Painting">Painting</label>
+      <label class="option"><input type="checkbox" name="Gardening" value="Gardening">Gardening</label>
+    </div>
+    <div class="OTT-Platform">
+      <p></p>
+    </div>
+    <label for="comments">Any comments or suggestions?</label>
+    <textarea id="comments" name="comments"></textarea>
+
+    <button type="submit">Submit Survey</button>
+  </form>   
+</body>
+</html>

@@ -3,32 +3,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Form</title>
+  <title>Contact | Riddhi</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(to left, #bbecfc, #59a35aeb);
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(5px);
+      padding: 25px 0;
+      border-bottom: 3px solid #449c66;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #1a7556;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #449c66;
+      margin: 0 12px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #efad6b;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    h2 {
+      color: #1a7556;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 17px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .contact-links a {
+      color: rgb(138, 98, 213);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .contact-links a:hover {
+      color: #efad6b;
+    }
+
+    footer {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(5px);
+      border-top: 3px solid #4faf7f;
+      padding: 18px;
+      margin-top: 40px;
+      font-size: 15px;
+      color: #444;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>📬 Contact Me</h1>
+    <nav>
+      <a href="index.html"> Home</a>
+      <a href="about.html"> About</a>
+      <a href="contact.html" class="active">📩 Contact</a>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <h2>Let's Connect!</h2>
+      <p>
+        I’d love to hear from you! Whether you want to collaborate, ask a question, or just say hello — 
+        feel free to reach out through any of the following platforms.
+      </p>
 
-  <form action="https://api.web3forms.com/submit" method="POST">
-    <!-- Hidden Access Key -->
-    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+      <div class="contact-links" style="margin-top: 25px;">
+        <p>
+          🔗 <b>LinkedIn:</b> 
+          <a href="https://www.linkedin.com/in/riddhi-s-395973334/" target="_blank">
+            www.linkedin.com/in/riddhi-s-395973334/
+          </a>
+        </p>
 
-    <h2>Contact Us</h2>
+        <p>
+          ✉️ <b>Email:</b> 
+          <a href="mailto:riddhis2805@gmail.com">riddhis2805@gmail.com</a>
+        </p>
 
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="subject">Subject</label>
-    <input type="text" id="subject" name="subject" required>
-
-    <label for="message">Message</label>
-    <textarea id="message" name="message" required></textarea>
-
-    <button type="submit">Send Message</button>
-  </form>
-
+        <p>
+          <b>Portfolio:</b> 
+          <a href="https://form-madeby-ri.netlify.app/" target="_blank">
+            form-madeby-ri.netlify.app
+          </a>
+        </p>
+      </div>
+      <hr style="margin: 40px 0;">
+      <p style="font-style: italic; color: #1a7556;">
+        “Connecting minds through creativity and code.” 
+      </p>
+    </div>
+  </main>
+  <footer>
+    <p>Riddhi’s Contact Page</p>
+  </footer>
 </body>
 </html>
-

@@ -1,90 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quick Survey</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Survey | Riddhi’s Form</title>
+
   <style>
+    /* ---------- Reset ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
       padding: 20px;
-      background: linear-gradient(135deg, #f5efe6, #e7d8c9);
-      animation: gradientShift 15s ease infinite alternate;
-      background-size: 200% 200%;
-      color: #333;
-      opacity: 0;
-      transition: opacity 1s ease-in;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1.5s ease forwards;
+      background: linear-gradient(120deg, #f9a1bc, #f9d976, #a2e4b8, #a4b9f8, #d9a7eb);
+      background-size: 400% 400%;
+      animation: bgShift 18s ease infinite;
     }
 
-    @keyframes gradientShift {
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes bgShift {
       0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    h1, p {
+    h1 {
       text-align: center;
-      color: #333;
+      color: #4b4453;
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
 
-    .other-pages {
+    p#description {
       text-align: center;
-      margin-top: 10px;
+      color: #2e4a61;
+      font-size: 1.1rem;
       margin-bottom: 20px;
     }
 
+    /* ---------- Navigation ---------- */
+    .other-pages {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .other-pages p {
+      font-weight: 600;
+      color: #4b4453;
+    }
+
     .other-pages a {
-      color: rgb(29, 70, 123);
+      color: #5138a0;
       text-decoration: none;
-      font-weight: bold;
-      margin: 0 5px;
+      font-weight: 600;
+      margin: 0 8px;
       transition: color 0.3s, text-shadow 0.3s;
     }
 
     .other-pages a:hover {
-      color: rgb(161, 99, 120);
-      text-shadow: 0 0 5px rgba(161, 99, 120, 0.4);
+      color: #ff7c7c;
+      text-shadow: 0 0 6px rgba(255, 124, 124, 0.4);
     }
 
+    /* ---------- Form ---------- */
     form {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       padding: 25px;
       margin: 20px auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
       max-width: 600px;
-      backdrop-filter: blur(5px);
-      transition: transform 0.3s ease;
+      backdrop-filter: blur(6px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     form:hover {
-      transform: scale(1.01);
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.18);
     }
 
     label {
       display: block;
       margin-bottom: 6px;
-      font-weight: bold;
-      color: #444;
+      font-weight: 600;
+      color: #333;
     }
 
-    input[type="text"], 
-    input[type="email"], 
-    input[type="number"], 
-    select, 
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select,
     textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
       border: 1px solid #bbb;
-      border-radius: 6px;
-      font-size: 14px;
-      transition: border 0.3s, box-shadow 0.3s;
+      border-radius: 10px;
+      font-size: 15px;
+      transition: border 0.3s, box-shadow 0.3s, transform 0.2s;
       box-sizing: border-box;
     }
 
     input:focus, select:focus, textarea:focus {
-      border-color: #0066cc;
-      box-shadow: 0 0 5px rgba(0,102,204,0.3);
+      border-color: #7f8ff4;
+      box-shadow: 0 0 6px rgba(127,143,244,0.5);
+      transform: scale(1.02);
       outline: none;
     }
 
@@ -93,10 +128,11 @@
       min-height: 100px;
     }
 
+    /* ---------- Options ---------- */
     .options-group p {
       margin: 10px 0;
-      font-weight: bold;
-      color: #333;
+      font-weight: 600;
+      color: #222;
     }
 
     .option {
@@ -114,8 +150,8 @@
       border-radius: 4px;
       margin-right: 8px;
       position: relative;
+      transition: all 0.3s ease;
       cursor: pointer;
-      transition: all 0.3s;
     }
 
     .option input[type="radio"] {
@@ -123,13 +159,13 @@
     }
 
     .option input:checked {
-      background: #0066cc;
-      border-color: #0066cc;
+      background: linear-gradient(135deg, #a4b9f8, #f9a1bc);
+      border-color: #7f8ff4;
     }
 
     .option input[type="checkbox"]:checked::after {
       content: "✔";
-      color: #fff;
+      color: white;
       font-size: 12px;
       position: absolute;
       top: 0;
@@ -147,36 +183,48 @@
       left: 3px;
     }
 
+    /* ---------- Buttons ---------- */
     button {
       width: 100%;
       padding: 12px;
-      background: #0066cc;
-      color: white;
-      font-weight: bold;
+      background: linear-gradient(135deg, #7f8ff4, #a685e2);
+      color: #fff;
+      font-weight: 600;
       border: none;
-      border-radius: 6px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: background 0.3s;
-      margin-top: 10px;
-      font-size: 15px;
+      transition: all 0.3s ease;
+      margin-top: 12px;
+      font-size: 16px;
     }
 
     button:hover {
-      background: #004d99;
+      background: linear-gradient(135deg, #5c6bc0, #9575cd);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* Special Portfolio Button */
+    .portfolio-btn {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    }
+
+    .portfolio-btn:hover {
+      background: linear-gradient(135deg, #f76b8a, #f9a1bc);
     }
   </style>
 </head>
 <body>
 
-  <h1 id="title" style="color:rgb(161, 99, 120)">Quick Survey</h1>
-  <p id="description" style="color: rgb(29, 70, 123);">Please fill out this survey form</p>
+  <h1 id="title">Quick Survey</h1>
+  <p id="description">Please fill out this survey form</p>
 
   <div class="other-pages">
     <p>
       Other Pages:
-      <a href="https://from-madeby-ri.netlify.app/portfolio.html">My-Profile</a>, 
-      <a href="https://form-madeby-ri.netlify.app/about">About</a>, 
-      <a href="https://form-madeby-ri.netlify.app/contact">Contact</a>
+      <a href="https://form-madeby-ri.netlify.app/portfolio.html">My Profile</a>,
+      <a href="about.html">About</a>,
+      <a href="contact.html">Contact</a>
     </p>
   </div>
 
@@ -188,7 +236,7 @@
 
     <label for="email">Email:</label>
     <input id="email" type="email" name="email" required>
-    
+
     <label for="number">Age:</label>
     <input id="number" type="number" name="age" required min="1" max="80">
 
@@ -216,32 +264,26 @@
     <div class="hobbie-group">
       <p>What are your hobbies?</p>
       <label class="option"><input type="checkbox" name="hobbies" value="reading"> Reading </label>
-      <label class="option"><input type="checkbox" name="hobbies" value="Cooking">Cooking or Baking</label>
-      <label class="option"><input type="checkbox" name="hobbies" value="Travelling">Travelling</label>
-      <label class="option"><input type="checkbox" name="hobbies" value="Singing">Singing</label>
+      <label class="option"><input type="checkbox" name="hobbies" value="Cooking"> Cooking or Baking</label>
+      <label class="option"><input type="checkbox" name="hobbies" value="Travelling"> Travelling</label>
+      <label class="option"><input type="checkbox" name="hobbies" value="Singing"> Singing</label>
       <label class="option"><input type="checkbox" name="hobbies" value="Crafting"> Crafting</label>
-      <label class="option"><input type="checkbox" name="hobbies" value="Painting">Painting</label>
-      <label class="option"><input type="checkbox" name="Gardening" value="Gardening">Gardening</label>
+      <label class="option"><input type="checkbox" name="hobbies" value="Painting"> Painting</label>
+      <label class="option"><input type="checkbox" name="hobbies" value="Gardening"> Gardening</label>
     </div>
 
     <label for="comments">Any comments or suggestions?</label>
     <textarea id="comments" name="comments" rows="5" cols="5"></textarea>
 
     <button 
-      type="button" 
-      onclick="window.location.href='portfolio.html'" 
-      style="background-color: #9cd2b8; color: white; font-size: 18px; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer;">
+      type="button"
+      class="portfolio-btn"
+      onclick="window.location.href='https://form-madeby-ri.netlify.app/portfolio.html'">
       Go to Riddhi's Portfolio
     </button>
 
     <button type="submit">Submit Survey</button>
-  </form>   
+  </form>
 
-  <script>
-    // Fade-in on page load
-    window.addEventListener("load", () => {
-      document.body.style.opacity = 1;
-    });
-  </script>
 </body>
 </html>

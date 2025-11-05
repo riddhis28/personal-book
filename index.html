@@ -8,10 +8,17 @@
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      background: linear-gradient(135deg, #e3d9c6 0%, #f4efe7 50%, #d8cbb8 100%);
-      background-attachment: fixed;
-      background-size: cover;
+      background: linear-gradient(135deg, #f5efe6, #e7d8c9);
+      animation: gradientShift 15s ease infinite alternate;
+      background-size: 200% 200%;
       color: #333;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     h1, p {
@@ -46,6 +53,11 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       max-width: 600px;
       backdrop-filter: blur(5px);
+      transition: transform 0.3s ease;
+    }
+
+    form:hover {
+      transform: scale(1.01);
     }
 
     label {
@@ -160,9 +172,10 @@
   <p id="description" style="color: rgb(29, 70, 123);">Please fill out this survey form</p>
 
   <div class="other-pages">
-    <p>Other Pages:
-      <a href="https://from-madeby-ri.netlify.app/portfolio.html">My-Profile</a>,
-      <a href="https://form-madeby-ri.netlify.app/about">About</a>,
+    <p>
+      Other Pages:
+      <a href="https://from-madeby-ri.netlify.app/portfolio.html">My-Profile</a>, 
+      <a href="https://form-madeby-ri.netlify.app/about">About</a>, 
       <a href="https://form-madeby-ri.netlify.app/contact">Contact</a>
     </p>
   </div>
@@ -224,5 +237,11 @@
     <button type="submit">Submit Survey</button>
   </form>   
 
+  <script>
+    // Fade-in on page load
+    window.addEventListener("load", () => {
+      document.body.style.opacity = 1;
+    });
+  </script>
 </body>
 </html>
